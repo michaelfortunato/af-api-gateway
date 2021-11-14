@@ -27,8 +27,8 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     outputs:
-      CONTAINER_IMAGE: ${{ steps.steps.output_step.CONTAINER_IMAGE }}
-      BRANCH_NAME: ${{ steps.steps.output_step.BRANCH_NAME }}
+      CONTAINER_IMAGE: ${{ steps.output_step.CONTAINER_IMAGE }}
+      BRANCH_NAME: ${{ steps.output_step.BRANCH_NAME }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -66,6 +66,8 @@ jobs:
       - name: Output branch and and container image
         id: output_step
         run: |
+          echo "${{ env.CONTAINER_IMAGE }}"
+          echo "${GITHUB_REF##*/}"
           echo "::set-output name=CONTAINER_IMAGE::${{ env.CONTAINER_IMAGE }}"
           echo "::set-output name=BRANCH_NAME::${GITHUB_REF##*/}"
   update-flux-repo:
