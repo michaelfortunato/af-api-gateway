@@ -46,7 +46,8 @@ jobs:
             # Just append the hash
             IMAGE_TAG=feature-$GITHUB_SHA
           fi
-          echo "$CONTAINER_IMAGE=$CONTAINER_IMAGE_BASE_NAME:IMAGE_TAG" >> $GITHUB_ENV
+          echo $IMAGE_TAG
+          echo "CONTAINER_IMAGE=$CONTAINER_IMAGE_BASE_NAME:$IMAGE_TAG" >> $GITHUB_ENV
       - name: Setup ECR
         run: |
           # Login to AWS ECR
