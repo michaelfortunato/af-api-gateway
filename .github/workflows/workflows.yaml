@@ -27,8 +27,8 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     outputs:
-      CONTAINER_IMAGE: ${{ steps.output_step.CONTAINER_IMAGE }}
-      BRANCH_NAME: ${{ steps.output_step.BRANCH_NAME }}
+      CONTAINER_IMAGE: ${{ steps.output_step.outputs.CONTAINER_IMAGE }}
+      BRANCH_NAME: ${{ steps.output_step.outputs.BRANCH_NAME }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
