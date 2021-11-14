@@ -36,11 +36,10 @@ jobs:
       # Get the branch name and (todo) Get the semver to tag the image appropriately
       - name: Set CONTAINER_IMAGE
         run: |
-          if [ $GITHUB_REF == 'refs/heads/main' ]
+          if [ $GITHUB_REF == 'refs/heads/main' ]; then
             # Get semver from package.json
-          then
             IMAGE_TAG=main-$GITHUB_SHA
-          elif [ $GITHUB_REF == 'refs/heads/dev' ]
+          elif [ $GITHUB_REF == 'refs/heads/dev' ]; then
             # Get semver from package.json
             IMAGE_TAG=dev-$GITHUB_SHA
           else
