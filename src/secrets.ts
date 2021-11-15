@@ -4,14 +4,14 @@ import path from "path";
 const secretFolderPath = process.env.SECRET_FOLDER_PATH as string;
 
 const s3AccessKeyId = fs.readFileSync(
-  path.join(secretFolderPath, "external-af-s3-secrets", "s3_aws_access_key_id"),
+  path.join(secretFolderPath, "af-s3-secrets", "s3-aws-access-key-id"),
   { encoding: "utf-8" }
 );
 const s3SecretAccessKey = fs.readFileSync(
   path.join(
     secretFolderPath,
-    "external-af-s3-secrets",
-    "s3_aws_secret_access_key"
+    "af-s3-secrets",
+    "s3-aws-secret-access-key"
   ),
   { encoding: "utf-8" }
 );
