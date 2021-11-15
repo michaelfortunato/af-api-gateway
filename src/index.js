@@ -16,7 +16,7 @@ const refreshSession = require("./refresh_session");
 
 // Our server
 const app = express();
-const port = process.env.API_GATEWAY_SERVICE_HOST;
+const port = process.env.API_GATEWAY_SERVICE_PORT;
 
 // Configure the S3 Client
 app.locals.s3_client = new S3Client({
