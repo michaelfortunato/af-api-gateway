@@ -29,7 +29,7 @@ jobs:
     outputs:
       CONTAINER_IMAGE: ${{ steps.output_step.outputs.CONTAINER_IMAGE }}
       BRANCH_NAME: ${{ steps.output_step.outputs.BRANCH_NAME }}
-    if: ${{ (github.ref == 'ref/heads/main') || ( github.ref == 'refs/heads/dev') }}
+    #if: ${{ (github.ref == 'ref/heads/main') || ( github.ref == 'refs/heads/dev') }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -38,12 +38,15 @@ jobs:
       - name: Set CONTAINER_IMAGE
         run: |
           if [ $GITHUB_REF == 'refs/heads/main' ]; then
+            echo $GITHUB_REF
             # Get semver from package.json
             IMAGE_TAG=main-$GITHUB_SHA
           elif [ $GITHUB_REF == 'refs/heads/dev' ]; then
+            echo $GITHUB_REF
             # Get semver from package.json
             IMAGE_TAG=dev-$GITHUB_SHA
           else
+            echo $GITHUB_REF
             # Just append the hash
             IMAGE_TAG=feature-$GITHUB_SHA
           fi
