@@ -70,10 +70,14 @@ jobs:
       - name: Output branch and and container image
         id: output_step
         run: |
-          echo "${{ env.CONTAINER_IMAGE }}"
-          echo "${GITHUB_REF##*/}"
+          if [ $GITHUB_REF == 'refs/heads/main' ]; then
+            echo "::set-output name=BRANCH_NAME::prod"
+          elif [ $GITHUB_REF == 'refs/heads/dev' ]; then
+            echo "::set-output name=BRANCH_NAME::dev"
+          else
+            echo "::set-output name=BRANCH_NAME::null"
+          fi
           echo "::set-output name=CONTAINER_IMAGE::${{ env.CONTAINER_IMAGE }}"
-          echo "::set-output name=BRANCH_NAME::${GITHUB_REF##*/}"
   update-flux-repo:
     name: Update flux repo
     runs-on: ubuntu-latest
