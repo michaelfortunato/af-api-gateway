@@ -41,6 +41,22 @@ const AUTH_PORT = process.env.AUTH_APP_SERVICE_SERVICE_PORT as string;
 
 const ACCOUNT_HOST = process.env.ACCOUNT_APP_SERVICE_SERVICE_HOST;
 const ACCOUNT_PORT = process.env.ACCOUNT_APP_SERVICE_SERVICE_PORT;
+
+console.log(
+{
+  s3AccessKeyId,
+  s3SecretAccessKey,
+  emailClientId,
+  emailPrivateKey,
+  accessTokenPublicKeys,
+  AUTH_HOST,
+  AUTH_PORT,
+  ACCOUNT_HOST,
+  ACCOUNT_PORT
+}
+
+)
+
 export {
   s3AccessKeyId,
   s3SecretAccessKey,
