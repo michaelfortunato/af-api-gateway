@@ -53,9 +53,7 @@ console.log(
   AUTH_PORT,
   ACCOUNT_HOST,
   ACCOUNT_PORT
-}
-
-)
+});
 
 export {
   s3AccessKeyId,
