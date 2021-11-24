@@ -74,8 +74,8 @@ const checkCredentials = async (
     const { accessToken, refreshToken } = possibleTokens;
     res.locals.accessToken = accessToken;
     res.locals.refreshToken = refreshToken;
-    res.cookie("accessToken", accessToken, { httpOnly: true });
-    res.cookie("refreshToken", refreshToken, { httpOnly: true });
+    res.cookie("accessToken", accessToken, { domain: "art-flex.co", httpOnly: true });
+    res.cookie("refreshToken", refreshToken, { domain: "art-flex.co", httpOnly: true });
     next();
   } catch (error: any) {
     if (error.response?.status === 401) {
