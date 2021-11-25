@@ -1,0 +1,19 @@
+version: 0.1
+env:
+  - name: SECRET_FOLDER_PATH
+    value: /TEMPORARY_DIR
+  - name: AUTOMATED_EMAIL_CREDENTIALS_PATH
+    value: $(volumeMounts:automated-email-credentials)
+  - name: AF_S3-SECRETS_PATH
+    value: $(volumeMounts:af-s3-secrets)
+  - name: ACCESS_TOKEN_PUBLIC_KEYS_PATH
+    value: $(volumeMounts:access-token-public-keys)
+  - name: AUTH_APP_SERVICE_SERVICE_HOST
+    value: $(services:auth-app-service)/api/v1/
+  - name: AUTH_APP_SERVICE_SERVICE_PORT
+    value: 8080
+  - name: ACCOUNT_APP_SERVICE_SERVICE_HOST
+    value: $(services:account-app)/api/v1/
+  - name: ACCOUNT_APP_SERVICE_SERVICE_PORT
+    value: 8080
+
