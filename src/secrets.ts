@@ -8,11 +8,7 @@ const s3AccessKeyId = fs.readFileSync(
   { encoding: "utf-8" }
 );
 const s3SecretAccessKey = fs.readFileSync(
-  path.join(
-    secretFolderPath,
-    "af-s3-secrets",
-    "s3-aws-secret-access-key"
-  ),
+  path.join(secretFolderPath, "af-s3-secrets", "s3-aws-secret-access-key"),
   { encoding: "utf-8" }
 );
 
@@ -36,11 +32,24 @@ const accessTokenPublicKeys: string[] = fs
     fs.readFileSync(`${accessTokenPublicKeyDirectory}/${file}`, "utf-8")
   );
 
-const AUTH_HOST = process.env.AUTH_APP_SERVICE_SERVICE_HOST as string;
-const AUTH_PORT = process.env.AUTH_APP_SERVICE_SERVICE_PORT as string;
+const AUTH_HOST = process.env.AUTH_APP_SERVICE_SERVICE_HOST;
+const AUTH_PORT = process.env.AUTH_APP_SERVICE_SERVICE_PORT;
 
 const ACCOUNT_HOST = process.env.ACCOUNT_APP_SERVICE_SERVICE_HOST;
 const ACCOUNT_PORT = process.env.ACCOUNT_APP_SERVICE_SERVICE_PORT;
+
+console.log({
+  s3AccessKeyId,
+  s3SecretAccessKey,
+  emailClientId,
+  emailPrivateKey,
+  accessTokenPublicKeys,
+  AUTH_HOST,
+  AUTH_PORT,
+  ACCOUNT_HOST,
+  ACCOUNT_PORT
+});
+
 export {
   s3AccessKeyId,
   s3SecretAccessKey,

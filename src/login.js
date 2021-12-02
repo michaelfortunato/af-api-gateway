@@ -14,8 +14,14 @@ router.post("/", async (req, res) => {
       password: req.body.password
     });
     const { name, email, accessToken, refreshToken } = authRes.data;
-    res.cookie("accessToken", accessToken, { httpOnly: true });
-    res.cookie("refreshToken", refreshToken, { httpOnly: true });
+    res.cookie("accessToken", accessToken, {
+      domain: "art-flex.co",
+      httpOnly: true
+    });
+    res.cookie("refreshToken", refreshToken, {
+      domain: "art-flex.co",
+      httpOnly: true
+    });
     res.status(200).send({ name, email });
   } catch (error) {
     if (error.response) {
