@@ -41,7 +41,7 @@ console.log(process.env.API_GATEWAY_SERVICE_PORT);
 
 const API_GATEWAY_SERVICE_PORT = process.env.LOCAL_PORT
   ? process.env.LOCAL_PORT
-  : process.env.API_GATEWAY_SERVICE__PORT;
+  : process.env.API_GATEWAY_SERVICE_PORT;
 
 const AUTH_HOST = process.env.AUTH_APP_SERVICE_SERVICE_HOST;
 const AUTH_PORT = process.env.AUTH_APP_SERVICE_SERVICE_PORT;
