@@ -1,7 +1,11 @@
 /* eslint import/no-unresolved: [2, { ignore: ['*$'] }] */
 // eslint-disable-next-line import/extensions
 import checkCredentials from "./checkCredentials";
-import { s3AccessKeyId, s3SecretAccessKey } from "./secrets";
+import {
+  API_GATEWAY_SERVICE_PORT,
+  s3AccessKeyId,
+  s3SecretAccessKey
+} from "./secrets";
 import signup from "./signup";
 import account from "./account";
 
@@ -16,8 +20,6 @@ const refreshSession = require("./refresh_session");
 
 // Our server
 const app = express();
-const port = process.env.API_GATEWAY_SERVICE_PORT;
-
 // Configure the S3 Client
 app.locals.s3_client = new S3Client({
   region: "us-east-1",
@@ -40,6 +42,6 @@ app.use("/is-logged-in", checkCredentials, (_, res) => {
 app.get("/test", async (req, res) => {
   res.send("fine");
 });
-app.listen(port, () => {
-  console.log(`Server is listening at ${port}`);
+app.listen(API_GATEWAY_SERVICE_PORT, () => {
+  console.log(`Server is listening at ${API_GATEWAY_SERVICE_PORT}`);
 });

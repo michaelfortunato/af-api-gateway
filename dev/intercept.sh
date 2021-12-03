@@ -6,7 +6,7 @@ export $(grep -v '^#' ./dev/predev.env.config | xargs)
 
 # Use telepresence to intercept the pod
 telepresence connect
-telepresence uninstall --all-agents
+telepresence uninstall --agent $DEV_APP
 telepresence intercept $DEV_APP --port $LOCAL_PORT:$CLUSTER_PORT --mount=false \
   --env-file=.env
 

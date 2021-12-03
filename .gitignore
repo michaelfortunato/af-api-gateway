@@ -5,7 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
+*.env
 # Ignore any file with the word secret in in!
 *secret*
 !src/secrets.ts
