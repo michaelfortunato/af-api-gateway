@@ -16,7 +16,7 @@ const cookieParser = require("cookie-parser");
 const login = require("./login");
 const logout = require("./logout");
 
-const refreshSession = require("./refresh_session");
+const refreshSession = require("./refresh-session");
 
 // Our server
 const app = express();
@@ -35,8 +35,8 @@ app.use("/signup", signup);
 app.use("/login", login);
 app.use("/logout", checkCredentials, logout);
 app.use("/account", checkCredentials, account);
-app.use("/refresh_session", refreshSession);
-app.use("/is-logged-in", checkCredentials, (_, res) => {
+app.use("/refresh-session", refreshSession);
+app.get("/is-logged-in", checkCredentials, (_, res) => {
   res.status(200).send({ statusMessage: "User is logged in" });
 });
 app.get("/test", async (req, res) => {

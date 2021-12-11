@@ -16,8 +16,8 @@ const axios = require("axios");
  * Case 2) If the accessToken is invalid and the refreshToken is still valid,
  * 		use the refreshToken to get a new accessToken AND refreshToken
  * 		(per Auth0 advice).
- * Case 3) If the accessToken is invalid and the refreshToken is invalid,
- * 		return null (can't help you),
+ * Case 3) If the accessToken is invalid and after trying the refreshToken is
+ *    invalid, the method will throw an error.
  * 		and let the calling method handle that value.
  * Note: There is the case where the accessToken
  * 		is valid and the refreshToken is invalid. All services will still accept

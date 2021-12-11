@@ -14,7 +14,6 @@ router.post("/", async (req, res) => {
       password: req.body.password
     });
     const { name, email, accessToken, refreshToken } = authRes.data;
-    console.log(accessToken);
     res.cookie("accessToken", accessToken, {
       //domain: "art-flex.co",
       httpOnly: true
